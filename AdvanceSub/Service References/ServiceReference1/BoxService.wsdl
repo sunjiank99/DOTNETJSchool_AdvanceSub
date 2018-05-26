@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetBoxUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BoxUserCodeB" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBoxUserInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBoxInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllBoxInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBoxInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBoxInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BoxUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BoxUserCodeB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="boxid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBoxInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBoxInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBoxGroupInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBoxGroupInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBoxGroupInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetBoxUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBoxUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBoxUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBoxInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBoxInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBoxInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBoxInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBoxInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBoxInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetBoxInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBoxInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBoxGroupInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBoxGroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="SetBoxGroupInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBoxGroupInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BoxServiceSoap">
+    <wsdl:operation name="GetBoxUserInfo">
+      <wsdl:input message="tns:GetBoxUserInfoSoapIn" />
+      <wsdl:output message="tns:GetBoxUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBoxInfo">
+      <wsdl:input message="tns:GetAllBoxInfoSoapIn" />
+      <wsdl:output message="tns:GetAllBoxInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxInfo">
+      <wsdl:input message="tns:SetBoxInfoSoapIn" />
+      <wsdl:output message="tns:SetBoxInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxGroupInfo">
+      <wsdl:input message="tns:SetBoxGroupInfoSoapIn" />
+      <wsdl:output message="tns:SetBoxGroupInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BoxServiceSoap" type="tns:BoxServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBoxUserInfo">
+      <soap:operation soapAction="http://tempuri.org/GetBoxUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBoxInfo">
+      <soap:operation soapAction="http://tempuri.org/GetAllBoxInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxInfo">
+      <soap:operation soapAction="http://tempuri.org/SetBoxInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxGroupInfo">
+      <soap:operation soapAction="http://tempuri.org/SetBoxGroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BoxServiceSoap12" type="tns:BoxServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBoxUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetBoxUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBoxInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBoxInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxInfo">
+      <soap12:operation soapAction="http://tempuri.org/SetBoxInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBoxGroupInfo">
+      <soap12:operation soapAction="http://tempuri.org/SetBoxGroupInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BoxService">
+    <wsdl:port name="BoxServiceSoap" binding="tns:BoxServiceSoap">
+      <soap:address location="http://app9.sngoo.com.cn/BoxService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BoxServiceSoap12" binding="tns:BoxServiceSoap12">
+      <soap12:address location="http://app9.sngoo.com.cn/BoxService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

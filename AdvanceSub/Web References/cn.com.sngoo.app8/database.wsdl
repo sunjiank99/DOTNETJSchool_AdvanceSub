@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://app8.sngoo.com.cn/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://app8.sngoo.com.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://app8.sngoo.com.cn/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyPassWord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ps" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyPassWordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifyPassWordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyUserRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifyUserRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifyUserRoleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPickPointList">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPickPointListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPickPointListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getGoodsOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PickPoint" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="starTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGoodsOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGoodsOrderResult" type="tns:ArrayOfGoodsOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGoodsOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GoodsOrder" nillable="true" type="tns:GoodsOrder" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GoodsOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickPointName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecevieName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiveTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddvanceSub" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShoppingNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getALLGoodsOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="starTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getALLGoodsOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getALLGoodsOrderResult" type="tns:ArrayOfGoodsOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGoodsOrderInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGoodsOrderInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGoodsOrderInfoResult" type="tns:ArrayOfGoodsOrderInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGoodsOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GoodsOrderInfo" nillable="true" type="tns:GoodsOrderInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GoodsOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GoodsName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GoodsNum" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="alterAddvanceSubStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="alterAddvanceSubStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="WriteIntoSub">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="tns:AddvanceSubInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddvanceSubInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderNum" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddvanceSubState" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddvanceId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WriteIntoSubResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadSubInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadSubInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadSubInfoResult" type="tns:ArrayOfAddvanceSubInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAddvanceSubInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AddvanceSubInfo" nillable="true" type="tns:AddvanceSubInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AlterSubStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterSubStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteSubInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubInfoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InputAssociationList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InputAssociationListResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOrderList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddvanceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOrderListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOrderListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterGoodsOderStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsOrder" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterGoodsOderStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getGoodsOrderListByAddvanceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGoodsOrderListByAddvanceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGoodsOrderListByAddvanceIdResult" type="tns:ArrayOfGoodsOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="alterGoodsOrderShoppingState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsOrder" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="alterGoodsOrderShoppingStateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="WriteShoppingNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteShoppingNoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGoodsClass">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGoodsClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodsClassResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBoxInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBoxInfoResult" type="tns:BoxInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BoxInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BoxId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxGroupId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxGroupOpenCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendState" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyPassWordSoapIn">
+    <wsdl:part name="parameters" element="tns:verifyPassWord" />
+  </wsdl:message>
+  <wsdl:message name="verifyPassWordSoapOut">
+    <wsdl:part name="parameters" element="tns:verifyPassWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyUserRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:verifyUserRole" />
+  </wsdl:message>
+  <wsdl:message name="verifyUserRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:verifyUserRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPickPointListSoapIn">
+    <wsdl:part name="parameters" element="tns:getPickPointList" />
+  </wsdl:message>
+  <wsdl:message name="getPickPointListSoapOut">
+    <wsdl:part name="parameters" element="tns:getPickPointListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:getGoodsOrder" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:getGoodsOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getALLGoodsOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:getALLGoodsOrder" />
+  </wsdl:message>
+  <wsdl:message name="getALLGoodsOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:getALLGoodsOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getGoodsOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getGoodsOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="alterAddvanceSubStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:alterAddvanceSubStatus" />
+  </wsdl:message>
+  <wsdl:message name="alterAddvanceSubStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:alterAddvanceSubStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteIntoSubSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteIntoSub" />
+  </wsdl:message>
+  <wsdl:message name="WriteIntoSubSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteIntoSubResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadSubInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadSubInfo" />
+  </wsdl:message>
+  <wsdl:message name="ReadSubInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadSubInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterSubStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterSubStatus" />
+  </wsdl:message>
+  <wsdl:message name="AlterSubStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterSubStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSubInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSubInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InputAssociationListSoapIn">
+    <wsdl:part name="parameters" element="tns:InputAssociationList" />
+  </wsdl:message>
+  <wsdl:message name="InputAssociationListSoapOut">
+    <wsdl:part name="parameters" element="tns:InputAssociationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderListSoapIn">
+    <wsdl:part name="parameters" element="tns:getOrderList" />
+  </wsdl:message>
+  <wsdl:message name="getOrderListSoapOut">
+    <wsdl:part name="parameters" element="tns:getOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterGoodsOderStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterGoodsOderStatus" />
+  </wsdl:message>
+  <wsdl:message name="AlterGoodsOderStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterGoodsOderStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderListByAddvanceIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getGoodsOrderListByAddvanceId" />
+  </wsdl:message>
+  <wsdl:message name="getGoodsOrderListByAddvanceIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getGoodsOrderListByAddvanceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="alterGoodsOrderShoppingStateSoapIn">
+    <wsdl:part name="parameters" element="tns:alterGoodsOrderShoppingState" />
+  </wsdl:message>
+  <wsdl:message name="alterGoodsOrderShoppingStateSoapOut">
+    <wsdl:part name="parameters" element="tns:alterGoodsOrderShoppingStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteShoppingNoSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteShoppingNo" />
+  </wsdl:message>
+  <wsdl:message name="WriteShoppingNoSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteShoppingNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodsClassSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodsClass" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodsClassSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodsClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBoxInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetBoxInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBoxInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="databaseSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyPassWord">
+      <wsdl:input message="tns:verifyPassWordSoapIn" />
+      <wsdl:output message="tns:verifyPassWordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyUserRole">
+      <wsdl:input message="tns:verifyUserRoleSoapIn" />
+      <wsdl:output message="tns:verifyUserRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPickPointList">
+      <wsdl:input message="tns:getPickPointListSoapIn" />
+      <wsdl:output message="tns:getPickPointListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrder">
+      <wsdl:input message="tns:getGoodsOrderSoapIn" />
+      <wsdl:output message="tns:getGoodsOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getALLGoodsOrder">
+      <wsdl:input message="tns:getALLGoodsOrderSoapIn" />
+      <wsdl:output message="tns:getALLGoodsOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderInfo">
+      <wsdl:input message="tns:getGoodsOrderInfoSoapIn" />
+      <wsdl:output message="tns:getGoodsOrderInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="alterAddvanceSubStatus">
+      <wsdl:input message="tns:alterAddvanceSubStatusSoapIn" />
+      <wsdl:output message="tns:alterAddvanceSubStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteIntoSub">
+      <wsdl:input message="tns:WriteIntoSubSoapIn" />
+      <wsdl:output message="tns:WriteIntoSubSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadSubInfo">
+      <wsdl:input message="tns:ReadSubInfoSoapIn" />
+      <wsdl:output message="tns:ReadSubInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterSubStatus">
+      <wsdl:input message="tns:AlterSubStatusSoapIn" />
+      <wsdl:output message="tns:AlterSubStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubInfo">
+      <wsdl:input message="tns:DeleteSubInfoSoapIn" />
+      <wsdl:output message="tns:DeleteSubInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InputAssociationList">
+      <wsdl:input message="tns:InputAssociationListSoapIn" />
+      <wsdl:output message="tns:InputAssociationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderList">
+      <wsdl:input message="tns:getOrderListSoapIn" />
+      <wsdl:output message="tns:getOrderListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterGoodsOderStatus">
+      <wsdl:input message="tns:AlterGoodsOderStatusSoapIn" />
+      <wsdl:output message="tns:AlterGoodsOderStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderListByAddvanceId">
+      <wsdl:input message="tns:getGoodsOrderListByAddvanceIdSoapIn" />
+      <wsdl:output message="tns:getGoodsOrderListByAddvanceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="alterGoodsOrderShoppingState">
+      <wsdl:input message="tns:alterGoodsOrderShoppingStateSoapIn" />
+      <wsdl:output message="tns:alterGoodsOrderShoppingStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteShoppingNo">
+      <wsdl:input message="tns:WriteShoppingNoSoapIn" />
+      <wsdl:output message="tns:WriteShoppingNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsClass">
+      <wsdl:input message="tns:GetGoodsClassSoapIn" />
+      <wsdl:output message="tns:GetGoodsClassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxInfo">
+      <wsdl:input message="tns:GetBoxInfoSoapIn" />
+      <wsdl:output message="tns:GetBoxInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="databaseSoap" type="tns:databaseSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyPassWord">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/verifyPassWord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyUserRole">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/verifyUserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPickPointList">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getPickPointList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrder">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getALLGoodsOrder">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getALLGoodsOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderInfo">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterAddvanceSubStatus">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/alterAddvanceSubStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteIntoSub">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/WriteIntoSub" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSubInfo">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/ReadSubInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterSubStatus">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/AlterSubStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubInfo">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/DeleteSubInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InputAssociationList">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/InputAssociationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderList">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterGoodsOderStatus">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/AlterGoodsOderStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderListByAddvanceId">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrderListByAddvanceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterGoodsOrderShoppingState">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/alterGoodsOrderShoppingState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteShoppingNo">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/WriteShoppingNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsClass">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/GetGoodsClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxInfo">
+      <soap:operation soapAction="http://app8.sngoo.com.cn/GetBoxInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="databaseSoap12" type="tns:databaseSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyPassWord">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/verifyPassWord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyUserRole">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/verifyUserRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPickPointList">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getPickPointList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrder">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getALLGoodsOrder">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getALLGoodsOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderInfo">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrderInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterAddvanceSubStatus">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/alterAddvanceSubStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteIntoSub">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/WriteIntoSub" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSubInfo">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/ReadSubInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterSubStatus">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/AlterSubStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubInfo">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/DeleteSubInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InputAssociationList">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/InputAssociationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderList">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getOrderList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterGoodsOderStatus">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/AlterGoodsOderStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodsOrderListByAddvanceId">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/getGoodsOrderListByAddvanceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterGoodsOrderShoppingState">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/alterGoodsOrderShoppingState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteShoppingNo">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/WriteShoppingNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsClass">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/GetGoodsClass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBoxInfo">
+      <soap12:operation soapAction="http://app8.sngoo.com.cn/GetBoxInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="database">
+    <wsdl:port name="databaseSoap" binding="tns:databaseSoap">
+      <soap:address location="http://app8.sngoo.com.cn/database.asmx" />
+    </wsdl:port>
+    <wsdl:port name="databaseSoap12" binding="tns:databaseSoap12">
+      <soap12:address location="http://app8.sngoo.com.cn/database.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

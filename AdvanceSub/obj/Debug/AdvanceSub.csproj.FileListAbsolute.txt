@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\bin\Debug\AdvanceSub.exe
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\bin\Debug\AdvanceSub.pdb
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.login.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.Properties.Resources.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.exe
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.pdb
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\bin\Debug\AdvanceSub.exe.config
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.Main.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.report.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.reportsView.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.Details.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.Printer.resources
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\bin\Debug\DMSkin.dll
+C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\obj\Debug\AdvanceSub.csprojResolveAssemblyReference.cache

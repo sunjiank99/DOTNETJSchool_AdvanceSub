@@ -1,0 +1,17 @@
+﻿1>------ 已启动生成:  项目: AdvanceSub, 配置: Release Any CPU ------
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\Main.Designer.cs(424,64,424,70): warning CS0108: “AdvanceSub.Main.Select”隐藏了继承的成员“System.Windows.Forms.Form.Select(bool, bool)”。如果是有意隐藏，请使用关键字 new。
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\Main.cs(153,17,153,22): warning CS0219: 变量“count”已赋值，但其值从未使用过
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\reportsView.cs(49,77,49,144): warning CS0252: 可能是无意的引用比较；若要获取值比较，请将左边的值强制转换为类型“string”
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\reportsView.cs(57,78,57,146): warning CS0252: 可能是无意的引用比较；若要获取值比较，请将左边的值强制转换为类型“string”
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\reportsView.cs(66,74,66,138): warning CS0252: 可能是无意的引用比较；若要获取值比较，请将左边的值强制转换为类型“string”
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\Main.Designer.cs(415,44,415,53): warning CS0169: 从不使用字段“AdvanceSub.Main.startTime”
+1>C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\Main.Designer.cs(416,44,416,51): warning CS0169: 从不使用字段“AdvanceSub.Main.endTime”
+1>  AdvanceSub -> C:\Users\Administrator\Desktop\AdvanceSub\AdvanceSub\bin\Release\AdvanceSub.exe
+正在生成 AdvanceSub...
+2>------ 发布已启动:  项目: AdvanceSub, 配置: Release Any CPU ------
+正在连接到“C:\Users\Administrator\Desktop\SubFABU\”...
+正在发布文件...
+发布成功。
+C:\Users\Administrator\Desktop\SubFABU\
+========== 生成:  成功 1 个，失败 0 个，最新 0 个，跳过 0 个 ==========
+========== 发布:  成功 1 个，失败 0 个，跳过 0 个 ==========
